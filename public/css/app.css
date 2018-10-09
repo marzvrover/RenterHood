@@ -10370,3 +10370,13 @@ a.text-dark:focus {
   color: #5c507c;
 }
 
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #9561e2;
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+}
+
