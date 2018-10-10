@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
     <head>
+        <title>{{ env('APP_NAME') }}</title>
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     </head>
     <body>
