@@ -31,7 +31,7 @@
                     <li class="nav-item dropdown" id="dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Username</a>
                         <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 37px, 0px);">
-                            <a class="dropdown-item" href="UserProfile.php">Profile</a>
+                            <a class="dropdown-item" href="UserProfile.blade.php">Profile</a>
                             <a class="dropdown-item" href="#">Inventory</a>
                         </div>
                     </li>
