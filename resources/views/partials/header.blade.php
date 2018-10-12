@@ -18,7 +18,7 @@
 
             <!-- Middle of Navbar | Not shown in collapse -->
 
-            <div class="navbar-nav d-none d-lg-inline w-100 mx-5">
+            <div class="navbar-nav d-none d-lg-inline w-100 mx-5 mt-2">
                 @include('partials.forms.search')
             </div>
 
