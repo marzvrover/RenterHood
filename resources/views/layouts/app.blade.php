@@ -7,13 +7,15 @@
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     </head>
     <body>
-        @include('partials.header')
-        <section class="container-fluid mt-5">
-            @yield('content')
-        </section>
-        <footer class="footer">
-            <p>&copy; RenterHood</p>
-        </footer>
+        <div id="app">
+            @include('partials.header')
+            <section class="container-fluid mt-5">
+                @yield('content')
+            </section>
+            <footer class="footer py-2">
+                <span>&copy; RenterHood 2018</span>
+            </footer>
+        </div>
         @push('scripts')
             <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
         @endpush
