@@ -48,11 +48,11 @@
          <div class="row">
              @forelse($items as $item)
                  <div class="col-md-4">
-                     <div class="card mb-4 border-secondary box-shadow">
+                     <div class="card mb-4 border-secondary box-shadow item">
                          <img class="card-img-top inventory-image" data-src="" alt="Image of {{ $item['title'] }}">
                          <div class="card-body border-secondary">
-                             <h5>{{ $item['title'] }}</h5>
-                             <h6>Postal Code: {{ $item['postal_code'] }}</h6>
+                             <h1 class="title">{{ $item['title'] }}</h1>
+                             <span class="postal_code">Postal Code: {{ $item['postal_code'] }}</span>
                              <p class="card-text">{{ $item['short_description'] }}</p>
                              <div class="d-flex justify-content-between align-items-center">
                                  <div class="btn-group">
@@ -63,7 +63,9 @@
                      </div>
                  </div>
              @empty
-
+                <div class="col-md-12 text-center text-primary">
+                    Sorry, but there is no items matching the search "{{ request('query') }}"
+                </div>
              @endforelse
          </div>
     </div>

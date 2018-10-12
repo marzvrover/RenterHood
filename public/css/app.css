@@ -10418,6 +10418,15 @@ header .dropdown-item.active:hover {
   height: 100px;
 }
 
+.item h1.title {
+  font-size: 14pt;
+}
+
+.item .postal_code {
+  font-weight: bold;
+  font-size: 1.05em;
+}
+
 .footer {
   width: 100%;
   background-color: #593196;
