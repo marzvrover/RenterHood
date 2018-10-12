@@ -22,5 +22,12 @@ const app = new Vue({
 });
 
 $(document).ready(function() {
-    //
+    $('.search select.filter').on('change', function() {
+        $('.search select.filter').val(this.value);
+    });
+    $('.search input.query').on('keyup', function(e) {
+        $(this).addClass('inputting');
+        $('.search input.query').not('.inputting').val(this.value);
+        $(this).removeClass('inputting')
+    });
 });
