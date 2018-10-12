@@ -14,6 +14,9 @@
         <footer class="footer">
             <p>&copy; RenterHood</p>
         </footer>
-        <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
+        @push('scripts')
+            <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
+        @endpush
+        @stack('scripts')
     </body>
 </html>
