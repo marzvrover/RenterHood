@@ -12,7 +12,7 @@
                     <a class="nav-link @if(request()->route()->getName() == 'home') active @endif" href="{{ route('home') }}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link @if(request()->route()->getName() == 'about') active @endif" href="#">About</a>
+                    <a class="nav-link @if(request()->route()->getName() == 'about') active @endif" href="{{ route('about') }}">About</a>
                 </li>
             </ul>
 
