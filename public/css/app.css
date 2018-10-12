@@ -10414,10 +10414,11 @@ header .dropdown-item.active:hover {
   border-bottom-right-radius: 30px !important;
 }
 
+.inventory-image {
+  height: 100px;
+}
+
 .footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
   width: 100%;
   background-color: #593196;
   color: rgba(255, 255, 255, 0.9);
