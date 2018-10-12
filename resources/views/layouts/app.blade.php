@@ -15,7 +15,7 @@
             <section class="container-fluid mt-5">
                 @yield('content')
             </section>
-            <footer class="footer py-2">
+            <footer class="footer mt-5 py-2">
                 <span>&copy; RenterHood 2018</span>
             </footer>
         </div>
