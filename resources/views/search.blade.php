@@ -3,22 +3,7 @@
 @section('content')
     <div class="row">
         <div class="col-md-8 text-center offset-2">
-            <form class="my-2 my-lg-0">
-                <div class="input-group mb-2 mr-sm-2">
-                    <div class="input-group-prepend">
-
-                        <select class="custom-select" id="inputGroupSelect01">
-                            <option selected>All</option>
-                            <option value="1">Postal Code</option>
-                            <option value="2">Keywords</option>
-                        </select>
-                    </div>
-                    <input type="text" class="form-control" id="search-terms" placeholder="Search&hellip;">
-                    <div class="input-group-append">
-                        <button style="border:1px solid #cbc8d0" class="btn">Search</button>
-                    </div>
-                </div>
-            </form>
+            @include('partials.forms.search')
         </div>
     </div>
     <div class="container" style="padding: 30px">
