@@ -14,6 +14,11 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::view('/user', 'UserProfile')->name('user');
 Route::view('/search', 'search')->name('search');
 Route::view('/about', 'about')->name('about');
+
+Route::get('/users', function () {
+    if (Auth::check()) return Redirect::route('users.show', Auth::user());
+    else abort(404);
+});
+Route::resource('users', 'UserController')->only(['show', 'edit', 'update', 'destroy']);

@@ -4,10 +4,10 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+            <div class="card border-secondary">
+                <div class="card-header bg-secondary text-white">{{ __('Register') }}</div>
 
-                <div class="card-body">
+                <div class="card-body text-primary">
                     <form method="POST" action="{{ route('register') }}" aria-label="{{ __('Register') }}">
                         @csrf
 
@@ -38,6 +38,77 @@
                                 @endif
                             </div>
                         </div>
+
+                        <div class="form-group row">
+                            <label for="postal_code" class="col-md-4 col-form-label text-md-right">Postal Code</label>
+
+                            <div class="col-md-6">
+                                <input id="postal_code" type="text" class="form-control{{ $errors->has('postal_code') ? ' is-invalid' : '' }}" name="postal_code" value="{{ old('postal_code') }}" required>
+
+                                @if ($errors->has('postal_code'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('postal_code') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="phone_number" class="col-md-4 col-form-label text-md-right">Phone Number</label>
+
+                            <div class="col-md-6">
+                                <input id="phone_number" type="tel" class="form-control{{ $errors->has('phone_number') ? ' is-invalid' : '' }}" name="phone_number" value="{{ old('phone_number') }}" required>
+
+                                @if ($errors->has('phone_number'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('phone_number') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="facebook" class="col-md-4 col-form-label text-md-right">Facebook</label>
+
+                            <div class="col-md-6">
+                                <input id="facebook" type="text" class="form-control{{ $errors->has('facebook') ? ' is-invalid' : '' }}" name="facebook" value="{{ old('facebook') }}">
+
+                                @if ($errors->has('facebook'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('facebook') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="twitter" class="col-md-4 col-form-label text-md-right">Twitter</label>
+
+                            <div class="col-md-6">
+                                <input id="twitter" type="text" class="form-control{{ $errors->has('twitter') ? ' is-invalid' : '' }}" name="twitter" value="{{ old('twitter') }}">
+
+                                @if ($errors->has('twitter'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('twitter') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="github" class="col-md-4 col-form-label text-md-right">GitHub</label>
+
+                            <div class="col-md-6">
+                                <input id="github" type="text" class="form-control{{ $errors->has('github') ? ' is-invalid' : '' }}" name="github" value="{{ old('github') }}">
+
+                                @if ($errors->has('github'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('github') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
 
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
