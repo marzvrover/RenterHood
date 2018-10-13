@@ -14,6 +14,14 @@
     white-space: nowrap;
 }
 
+.text-white a .fa-edit {
+    color: $white;
+}
+
+input.border-secondary {
+    border: $secondary 1px solid;
+}
+
 header {
     .dropdown-item.active {
         background-color: lighten($purple, 25%);

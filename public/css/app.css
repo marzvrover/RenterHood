@@ -10374,6 +10374,14 @@ a.text-dark:focus {
   white-space: nowrap;
 }
 
+.text-white a .fa-edit {
+  color: #ffffff;
+}
+
+input.border-secondary {
+  border: #A991D4 1px solid;
+}
+
 header .dropdown-item.active {
   background-color: #9a75d2;
 }
