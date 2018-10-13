@@ -5,18 +5,79 @@
 // Variables
 @import 'variables';
 
-// Bootstrap
+// Bootstrap and Dependencies
 @import "~bootswatch/dist/pulse/variables";
 @import '~bootstrap/scss/bootstrap';
 @import "~bootswatch/dist/pulse/bootswatch";
 
-.footer
-{
-    position: fixed;
-    left: 0;
-    bottom: 0;
+.no-wrap {
+    white-space: nowrap;
+}
+
+.text-white a .fa-edit {
+    color: $white;
+}
+
+input.border-secondary {
+    border: $secondary 1px solid;
+}
+
+header {
+    .dropdown-item.active {
+        background-color: lighten($purple, 25%);
+
+        &:hover {
+            background-color: $purple;
+        }
+    }
+}
+
+.search {
+    .input-group {
+        border: $purple 2px solid;
+        border-radius: $search-border-radius;
+
+        select, input, button {
+            border: none;
+
+            &:focus {
+                box-shadow: none;
+            }
+        }
+
+        select {
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+    .rounded-left {
+        border-top-left-radius: $search-border-radius !important;
+        border-bottom-left-radius: $search-border-radius !important;
+    }
+    .rounded-right {
+        border-top-right-radius: $search-border-radius !important;
+        border-bottom-right-radius: $search-border-radius !important;
+    }
+}
+
+.inventory-image {
+    height: 100px;
+}
+
+.item {
+    h1.title {
+        font-size: 14pt;
+    }
+    .postal_code {
+        font-weight: bold;
+        font-size: 1.05em;
+    }
+}
+
+.footer {
     width: 100%;
-    background-color: #9561e2;
-    color: rgba(255, 255, 255, 0.9);
+    background-color: $primary;
+    color: transparentize($white, 0.1);
     text-align: center;
 }

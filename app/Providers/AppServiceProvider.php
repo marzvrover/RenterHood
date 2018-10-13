@@ -14,6 +14,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        /* Adds support for older version of MySQL
+         * (XAMPP for Window's version)
+         */
         Schema::defaultStringLength(191);
     }
 
