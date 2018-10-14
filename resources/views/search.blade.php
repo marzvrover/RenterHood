@@ -55,7 +55,7 @@
              @forelse($items as $item)
                  <div class="col-md-4">
                      <div class="card mb-4 border-secondary box-shadow item">
-                         <img class="card-img-top inventory-image" src="{{ asset($item['image']) }}" data-src="" alt="Image of {{ $item['title'] }}">
+                         <img class="card-img-top inventory-image" style="height: 200px" src="{{ asset($item['image']) }}" data-src="" alt="Image of {{ $item['title'] }}">
                          <div class="card-body border-secondary">
                              <h1 class="title">{{ $item['title'] }}</h1>
                              <span class="postal_code">Postal Code: {{ $item['postal_code'] }}</span>
