@@ -22,6 +22,18 @@ input.border-secondary {
     border: $secondary 1px solid;
 }
 
+// Prevent auto-zoom on mobile browsers when inputting data.
+input[type="color"], input[type="date"], input[type="datetime"],
+input[type="datetime-local"], input[type="email"], input[type="month"],
+input[type="number"], input[type="password"], input[type="search"],
+input[type="tel"], input[type="text"], input[type="time"],
+input[type="url"], input[type="week"], select,
+textarea {
+    &, &:focus {
+        font-size: $standard-font-size;
+    }
+}
+
 header {
     .dropdown-item.active {
         background-color: lighten($purple, 25%);
@@ -50,6 +62,11 @@ header {
                 cursor: pointer;
             }
         }
+
+        button {
+            font-size: $standard-font-size;
+            padding-top: 5px;
+        }
     }
     .rounded-left {
         border-top-left-radius: $search-border-radius !important;
@@ -62,7 +79,7 @@ header {
 }
 
 .inventory-image {
-    height: 100px;
+    height: 200px;
 }
 
 .item {

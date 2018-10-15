@@ -10382,6 +10382,41 @@ input.border-secondary {
   border: #A991D4 1px solid;
 }
 
+input[type="color"],
+input[type="color"]:focus,
+input[type="date"],
+input[type="date"]:focus,
+input[type="datetime"],
+input[type="datetime"]:focus,
+input[type="datetime-local"],
+input[type="datetime-local"]:focus,
+input[type="email"],
+input[type="email"]:focus,
+input[type="month"],
+input[type="month"]:focus,
+input[type="number"],
+input[type="number"]:focus,
+input[type="password"],
+input[type="password"]:focus,
+input[type="search"],
+input[type="search"]:focus,
+input[type="tel"],
+input[type="tel"]:focus,
+input[type="text"],
+input[type="text"]:focus,
+input[type="time"],
+input[type="time"]:focus,
+input[type="url"],
+input[type="url"]:focus,
+input[type="week"],
+input[type="week"]:focus,
+select,
+select:focus,
+textarea,
+textarea:focus {
+  font-size: 16px;
+}
+
 header .dropdown-item.active {
   background-color: #9a75d2;
 }
@@ -10412,6 +10447,11 @@ header .dropdown-item.active:hover {
   cursor: pointer;
 }
 
+.search .input-group button {
+  font-size: 16px;
+  padding-top: 5px;
+}
+
 .search .rounded-left {
   border-top-left-radius: 30px !important;
   border-bottom-left-radius: 30px !important;
@@ -10423,7 +10463,7 @@ header .dropdown-item.active:hover {
 }
 
 .inventory-image {
-  height: 100px;
+  height: 200px;
 }
 
 .item h1.title {
