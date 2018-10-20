@@ -22,3 +22,5 @@ Route::get('/users', function () {
     else abort(404);
 });
 Route::resource('users', 'UserController')->only(['show', 'edit', 'update', 'destroy']);
+
+Route::resource('items', 'ItemController');
