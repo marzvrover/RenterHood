@@ -27,4 +27,12 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Defines item relationship
+     */
+    public function items()
+    {
+        $this->hasMany('App\Item');
+    }
 }
