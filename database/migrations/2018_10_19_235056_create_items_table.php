@@ -18,11 +18,11 @@ class CreateItemsTable extends Migration
             $table->unsignedInteger('user_id');
             $table->string( 'name');
             $table->string('description');
-            $table->softDeletes();
             $table->string('postal_code');
-            $table->integer('price')->nullable();
+            $table->integer('price');
             $table->string('picture');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
