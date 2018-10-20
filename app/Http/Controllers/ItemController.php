@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\ModelName;
+use App\Item;
 use Illuminate\Http\Request;
 
-class ModelNameController extends Controller
+class ItemController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class ModelNameController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\ModelName  $modelName
+     * @param  \App\Item  $item
      * @return \Illuminate\Http\Response
      */
-    public function show(ModelName $modelName)
+    public function show(Item $item)
     {
         //
     }
@@ -52,10 +52,10 @@ class ModelNameController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\ModelName  $modelName
+     * @param  \App\Item  $item
      * @return \Illuminate\Http\Response
      */
-    public function edit(ModelName $modelName)
+    public function edit(Item $item)
     {
         //
     }
@@ -64,10 +64,10 @@ class ModelNameController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\ModelName  $modelName
+     * @param  \App\Item  $item
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ModelName $modelName)
+    public function update(Request $request, Item $item)
     {
         //
     }
@@ -75,10 +75,10 @@ class ModelNameController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\ModelName  $modelName
+     * @param  \App\Item  $item
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ModelName $modelName)
+    public function destroy(Item $item)
     {
         //
     }
