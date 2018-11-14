@@ -31,6 +31,5 @@
                 </fieldset>
             </form>
         </div>
-        </div>
     </div>
 @endsection()
