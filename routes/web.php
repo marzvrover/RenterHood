@@ -16,6 +16,7 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 Route::view('/search', 'search')->name('search');
 Route::view('/about', 'about')->name('about');
+Route::view('/add', 'item/add')->name('add');
 
 Route::get('/users', function () {
     if (Auth::check()) return Redirect::route('users.show', Auth::user());
