@@ -1,55 +1,6 @@
-<?php
-    /*
-     * This array is for the dummy static data.
-     */
-    $items = [
-        [
-            'title' => 'Carpet Steamer',
-            'image' => 'img/CarpetSteamer.jpg',
-            'postal_code' => '68102',
-            'short_description' => 'Carpet steamer that has only been used a few times. Rent for a week at a time.',
-        ],
-        [
-            'title' => 'Rider Lawn Mower',
-            'image' => 'img/RiderLawnMower.jpg',
-            'postal_code' => '68102',
-            'short_description' => 'Rider lawn more for rent. Must have a trailer to pick it up. May need gas before using.',
-        ],
-        [
-            'title' => 'Chainsaw',
-            'image' => 'img/STIHLChainsaw.png',
-            'postal_code' => '68102',
-            'short_description' => 'STIHL brand chainsaw. Works like a charm. Will be full of gas and oil when picked up.',
-        ],
-        [
-            'title' => 'Sewing Machine',
-            'image' => 'img/sewingMaching.jpeg',
-            'postal_code' => '68102',
-            'short_description' => 'Brand new sewing machine out of the box. Willing to rent out for long periods of time.',
-        ],
-        [
-            'title' => 'Snow Blower',
-            'image' => 'img/snowBlower.jpeg',
-            'postal_code' => '68102',
-            'short_description' => 'It\'s almost that time of year again. For rent for a day at a time.',
-        ],
-        [
-            'title' => 'Dewalt Drill',
-            'image' => 'img/DewaltDrill.jpeg',
-            'postal_code' => '68102',
-            'short_description' => 'Dewalt power drill. Battery and charger included when rented.',
-        ],
-    ];
-?>
-
 @extends('layouts.app')
 
 @section('content')
-    <div class="row">
-        <div class="col-lg-8 text-center offset-lg-2">
-            @include('partials.forms.search')
-        </div>
-    </div>
     <div class="container" style="padding: 30px">
          <div class="row">
              @forelse($items as $item)
