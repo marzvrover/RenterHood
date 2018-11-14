@@ -46,7 +46,7 @@ class ItemController extends Controller
      */
     public function show(Item $item)
     {
-        //
+        return view('item.show', ['item' => $item]);
     }
 
     /**
