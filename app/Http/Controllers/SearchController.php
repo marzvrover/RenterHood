@@ -12,12 +12,12 @@ class SearchController extends Controller
         $query = request('query');
 
         if(Str::is($filter,'postal')){
-            $items = Item::where('postal_code', $query);
+            $items = Item::where('postal_code', $query)->get();
         }
         else{
             $items = Item::search($query)->get();
         }
 
-        return view('search', ['items,' => $items]);
+        return view('search', ['items' => $items]);
     }
 }
