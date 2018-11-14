@@ -10,7 +10,7 @@
                         <div class="card-body border-secondary">
                             <h1 class="title">{{ $item->name }}</h1>
                             <span class="postal_code">Postal Code: {{ $item->postal_code }}</span>
-                            <p class="card-text">{{ $item->description }}</p>
+                            <p class="card-text">{{ $item->short_description }}</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                     <a role="button" class="btn btn-sm btn-outline-primary" href="{{ route('items.show', $item->id) }}">View</a>
