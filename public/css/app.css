@@ -2259,11 +2259,6 @@ pre code {
   opacity: 1;
 }
 
-.form-control:-ms-input-placeholder {
-  color: #868e96;
-  opacity: 1;
-}
-
 .form-control::-ms-input-placeholder {
   color: #868e96;
   opacity: 1;
@@ -10370,6 +10365,16 @@ a.text-dark:focus {
   color: #5c507c;
 }
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+
 .no-wrap {
   white-space: nowrap;
 }
@@ -10476,9 +10481,17 @@ header .dropdown-item.active:hover {
 }
 
 .footer {
+  position: absolute;
+  bottom: 0;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  line-height: 60px;
+  /* Vertically center the text there */
   width: 100%;
   background-color: #593196;
   color: rgba(255, 255, 255, 0.9);
   text-align: center;
 }
 
+
+/*# sourceMappingURL=app.css.map*/

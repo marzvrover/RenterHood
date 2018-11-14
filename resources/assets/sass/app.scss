@@ -10,6 +10,15 @@
 @import '~bootstrap/scss/bootstrap';
 @import "~bootswatch/dist/pulse/bootswatch";
 
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+
 .no-wrap {
     white-space: nowrap;
 }
@@ -94,8 +103,14 @@ header {
 }
 
 .footer {
+    position: absolute;
+    bottom: 0;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    line-height: 60px; /* Vertically center the text there */
     width: 100%;
     background-color: $primary;
     color: transparentize($white, 0.1);
     text-align: center;
 }
+
