@@ -27,7 +27,7 @@
                         <input type="file" class="form-control-file" id="itemPicture">
                         <small id="fileHelp" class="form-text text-muted">Upload a picture of the item you would like to rent out.</small>
                     </div>
-                    <button type="submit" class="btn btn-primary ">Submit</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </fieldset>
             </form>
         </div>
