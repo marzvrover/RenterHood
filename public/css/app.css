@@ -10370,6 +10370,16 @@ a.text-dark:focus {
   color: #5c507c;
 }
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+
 .no-wrap {
   white-space: nowrap;
 }
@@ -10476,9 +10486,21 @@ header .dropdown-item.active:hover {
 }
 
 .footer {
+  position: absolute;
+  bottom: 0;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  line-height: 60px;
+  /* Vertically center the text there */
   width: 100%;
   background-color: #593196;
   color: rgba(255, 255, 255, 0.9);
   text-align: center;
 }
 
+#rentButton
+{
+    margin-top: 30px;
+    width: 150px;
+}
+/*# sourceMappingURL=app.css.map*/
