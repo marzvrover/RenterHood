@@ -39,6 +39,9 @@
                             <a>Addtional Right Side Auth Required Links</a>
                         </li>
                     --}}
+                    <li class="nav-item text-nowrap">
+                        <a class="nav-link @if(request()->route()->getName() == 'add') active @endif" href="{{ route('add') }}">Add Item</a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle no-wrap" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }} <span class="caret"></span>
