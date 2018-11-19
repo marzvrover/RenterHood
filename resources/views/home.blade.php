@@ -18,9 +18,9 @@
 
                     <div style="margin-top: 30px" class="text-center">
 
-                        <a role="button" class="btn btn-lg btn-primary @if(request()->route()->getName() == 'add') active @endif" href="{{ route('add') }}">Add Item</a>
-                        <a role="button" class="btn btn-lg btn-primary @if(request()->route()->getName() == 'inventory') active @endif" href="{{ route('inventory') }}">View Inventory</a>
-                        <a role="button" class="btn btn-lg btn-primary @if(request()->route()->getName() == 'users.show') active @endif" href="{{ route('users.show', Auth::user()) }}">View Profile</a>
+                        <a role="button" class="btn btn-lg btn-primary" href="{{ route('items.create') }}">Add Item</a>
+                        <a role="button" class="btn btn-lg btn-primary" href="{{ route('inventory') }}">View Inventory</a>
+                        <a role="button" class="btn btn-lg btn-primary" href="{{ route('users.show', Auth::user()) }}">View Profile</a>
 
                     </div>
                 </div>
