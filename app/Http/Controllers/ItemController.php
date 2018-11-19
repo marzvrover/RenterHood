@@ -53,7 +53,7 @@ class ItemController extends Controller
 
         // Stores image
         if ($request->hasFile('picture')) {
-            $validatedData['picture'] = $request->file('picture')->store('items-picture', ['disk' => 'public']);
+            $validatedData['picture'] = 'storage/' . $request->file('picture')->store('items-picture', ['disk' => 'public']);
         } else {
             $validatedData['picture'] = Item::$defaultImage;
         }
@@ -73,7 +73,7 @@ class ItemController extends Controller
      */
     public function show(Item $item)
     {
-        return view('item.show', ['item' => $item]);
+        return view('item.show', ['item' => $item->load('user')]);
     }
 
     /**
