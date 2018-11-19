@@ -1,7 +1,10 @@
 @extends('layouts.app')
 @section('content')
     <div class="card border-primary mb-3 mx-auto" style="max-width: 60%;">
-        <div class="card-header bg-secondary text-white h4">{{ $item->name }}</div>
+        <div class="card-header bg-secondary text-white h4">
+            <span class="float-left">{{ $item->name }}</span>
+            <span class="float-right">${{ $item->price }}</span>
+        </div>
         <div class="card-body">
             <div>
                 <img class="inventory-image float-left" style="height: 200px; width: 300px;" src="{{ asset($item->picture) }}" data-src="" alt="Image of {{ $item->name }}">
