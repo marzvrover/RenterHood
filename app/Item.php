@@ -9,13 +9,15 @@ class Item extends Model
 {
     use Searchable;
 
+    public static $defaultImage = 'img/stock_item.png';
+
     protected $fillable = [
+        'user_id',
         'name',
         'description',
         'postal_code',
         'price',
         'picture',
-
     ];
 
     /**
