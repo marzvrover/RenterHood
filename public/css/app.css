@@ -2259,11 +2259,6 @@ pre code {
   opacity: 1;
 }
 
-.form-control:-ms-input-placeholder {
-  color: #868e96;
-  opacity: 1;
-}
-
 .form-control::-ms-input-placeholder {
   color: #868e96;
   opacity: 1;
@@ -10424,7 +10419,7 @@ select,
 select:focus,
 textarea,
 textarea:focus {
-  font-size: 16px;
+  font-size: 16px !important;
 }
 
 header .dropdown-item.active {
@@ -10498,9 +10493,15 @@ header .dropdown-item.active:hover {
   text-align: center;
 }
 
-#rentButton
-{
-    margin-top: 30px;
-    width: 150px;
+.form-control:-ms-input-placeholder {
+  color: #868e96;
+  opacity: 1;
 }
+
+#rentButton {
+  margin-top: 30px;
+  width: 150px;
+}
+
+
 /*# sourceMappingURL=app.css.map*/

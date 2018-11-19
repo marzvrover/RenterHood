@@ -50,7 +50,7 @@
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
                             <a class="dropdown-item @if(request()->route()->getName() == 'users.show') active @endif" href="{{ route('users.show', Auth::user()) }}">Profile</a>
-                            <a class="dropdown-item @if(request()->route()->getName() == 'inventory') active @endif" href="#">Inventory</a>
+                            <a class="dropdown-item @if(request()->route()->getName() == 'inventory') active @endif" href="{{ route('inventory') }}">Inventory</a>
 
                             <!-- Logout stuff -->
                             <a class="dropdown-item" href="{{ route('logout') }}"

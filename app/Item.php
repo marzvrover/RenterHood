@@ -44,4 +44,22 @@ class Item extends Model
     public function getShortDescriptionAttribute() {
         return Str::words($this->description, 15);
     }
+
+    /**
+     * Accessor for the price.
+     * This price is formatted prettily.
+     *
+     * @return String
+     */
+    public function getPriceAttribute() {
+        return number_format($this->attributes['price']/100, 2);
+    }
+
+    /**
+     * Accessor for raw price.
+     * This price is in cents.
+     */
+    public function getRawPriceAttribute() {
+        return $this->attributes['price'];
+    }
 }

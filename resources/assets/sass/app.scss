@@ -39,7 +39,7 @@ input[type="tel"], input[type="text"], input[type="time"],
 input[type="url"], input[type="week"], select,
 textarea {
     &, &:focus {
-        font-size: $standard-font-size;
+        font-size: $standard-font-size !important;
     }
 }
 
@@ -114,3 +114,13 @@ header {
     text-align: center;
 }
 
+.form-control:-ms-input-placeholder {
+    color: #868e96;
+    opacity: 1;
+}
+
+#rentButton
+{
+    margin-top: 30px;
+    width: 150px;
+}
