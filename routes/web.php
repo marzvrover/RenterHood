@@ -25,3 +25,7 @@ Route::get('/users', function () {
 Route::resource('users', 'UserController')->only(['show', 'edit', 'update', 'destroy']);
 
 Route::resource('items', 'ItemController');
+
+Route::name('requests.')->prefix('requests')->group(function() {
+    Route::get('/{rent_request}', 'RentRequestController@show')->name('show');
+});
