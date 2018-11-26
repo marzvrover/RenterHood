@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card border-secondary">
-                <div class="card-header bg-secondary text-white" style="font-size: large">Dashboard</div>
+                <div class="card-header bg-secondary text-white" style="font-size: large">Quick Links</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -21,9 +21,17 @@
                         <a role="button" class="btn btn-lg btn-primary" href="{{ route('users.show', Auth::user()) }}">View Profile</a>
 
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-                    <div style="margin-top: 50px">
-                        <h5>Items for Approval</h5>
+    <div style="margin-top: 20px" class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card border-secondary">
+                <div class="card-header bg-secondary text-white" style="font-size: large">Items for Approval</div>
+                <div class="card-body">
+                    <div style="margin-top: 10px">
                         <table id="ApprovalItems">
                             <tr>
                                 <th>Item Name</th>
@@ -32,6 +40,7 @@
                                 <th>User Requesting</th>
                                 <th>Accept/Deny</th>
                             </tr>
+                            <tr>
                                 <td>
                                     Carpet Steamer
                                 </td>
@@ -51,7 +60,43 @@
                             </tr>
                         </table>
                     </div>
-
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="margin-top: 20px" class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card border-secondary">
+                <div class="card-header bg-secondary text-white" style="font-size: large">Pending Requested Items</div>
+                <div class="card-body">
+                    <div style="margin-top: 10px">
+                        <table id="ApprovalItems">
+                            <tr>
+                                <th>Item Name</th>
+                                <th>Price</th>
+                                <th>Description</th>
+                                <th>Item Owner</th>
+                                <th>Status</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Golf Cart
+                                </td>
+                                <td>
+                                    $100.00
+                                </td>
+                                <td>
+                                    Get a birdie and I will take $5 off!
+                                </td>
+                                <td>
+                                    Matt Dooley
+                                </td>
+                                <td>
+                                    Waiting for Approval
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
