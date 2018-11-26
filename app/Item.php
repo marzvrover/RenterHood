@@ -37,6 +37,11 @@ class Item extends Model
         return $this->belongsTo('App\User');
     }
 
+    public function reviews()
+    {
+        return $this->morphMany('App\Review', 'reviewable');
+    }
+
     /**
      * Defines request relationship
      */
@@ -70,5 +75,9 @@ class Item extends Model
      */
     public function getRawPriceAttribute() {
         return $this->attributes['price'];
+    }
+
+    public function getReviews() {
+        return $this->reviews();
     }
 }
