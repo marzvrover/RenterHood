@@ -16,7 +16,6 @@ class CreateRentRequestsTable extends Migration
         Schema::create('rent_requests', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('requester_id');
-            // $table->unsignedInteger('requestee_id');
             $table->unsignedInteger('item_id');
             $table->longText('comment')->nullable();
             $table->boolean('accepted')->nullable();
