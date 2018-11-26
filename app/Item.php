@@ -38,6 +38,13 @@ class Item extends Model
     }
 
     /**
+     * Defines request relationship
+     */
+    public function requests() {
+        return $this->hasMany('App\RentRequest', 'item_id');
+    }
+
+    /**
      * Accessor for the short description.
      * The short description is the first 15 words of the description.
      *
