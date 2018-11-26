@@ -44,7 +44,7 @@ class ItemsTableSeeder extends Seeder
             ]);
 
             DB::table('items')->insert([
-                'user_id' => 1,
+                'user_id' => 2,
                 'name' => 'Sewing Machine',
                 'description' => 'Brand new sewing machine out of the box. Willing to rent out for long periods of time.',
                 'postal_code' => '68102',
@@ -53,7 +53,7 @@ class ItemsTableSeeder extends Seeder
             ]);
 
             DB::table('items')->insert([
-                'user_id' => 1,
+                'user_id' => 2,
                 'name' => 'Snow Blower',
                 'description' => 'It\'s almost that time of year again. For rent for a day at a time.',
                 'postal_code' => '68102',
@@ -62,7 +62,7 @@ class ItemsTableSeeder extends Seeder
             ]);
 
             DB::table('items')->insert([
-                'user_id' => 1,
+                'user_id' => 2,
                 'name' => 'Dewalt Drill',
                 'description' => 'Dewalt power drill. Battery and charger included when rented.',
                 'postal_code' => '68102',
