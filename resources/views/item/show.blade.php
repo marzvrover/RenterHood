@@ -26,7 +26,29 @@
                                 <p>Email: {{ $item->user->email}}</p>
                                 <button class="btn btn-primary float-right" id="rentButton">Rent</button>
                             </div>
+
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 offset-1">
+                <div class="card border-primary mb-3 mx-auto">
+                    <div class="card-header bg-secondary text-white h4">Item Review</div>
+                    <div class="card-body">
+                        <div>
+                            <div class="reviewHeader">
+                                <span class="h5">User's Name</span>
+                                <span>Rating</span>
+                            </div>
+                            <div class ="reviewBody">
+                                <p>This carpet cleaner rocked my world!</p>
+                            </div>
+                        </div>
+                        <hr class="border-primary"/>
                     </div>
                 </div>
             </div>
