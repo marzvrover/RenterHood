@@ -37,8 +37,11 @@ class User extends Authenticatable
     }
 
 
+    /**
+     *
+     */
     public function requests() {
-        return $this->hasMany('App\RentRequest', 'requestee_id');
+        return $this->hasManyThrough('App\RentRequest', 'App\Item', 'user_id');
     }
 
     /**
@@ -48,7 +51,14 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\RentRequest', 'requester_id');
     }
-    public function user_reviews()
+
+    public function isRequesting($item) {
+        $request = $this->requestings->where('item_id', $item->id)->where('resolved', 0)->first();
+
+        return ($request !== null);
+    }
+
+    public function reviews()
     {
         return $this->morphMany('App\Review', 'reviewable');
     }

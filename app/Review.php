@@ -8,9 +8,9 @@ class Review extends Model
 {
 
     protected $fillable = [
-        'user_id',
+        'owner_id',
         'value',
-        'comment',
+        'comment'
     ];
 
     public function reviewable()
@@ -22,6 +22,55 @@ class Review extends Model
     public function owner()
     {
         return $this->belongsTo(User::class, 'owner_id');
+    }
+
+    public function getRatingAttribute() {
+        $output = "";
+
+        switch ($this->value) {
+            case 1:
+                $output =
+                    "<i class='fa fa-star'></i>" .
+                    "<i class='fa fa-star-o'></i>" .
+                    "<i class='fa fa-star-o'></i>" .
+                    "<i class='fa fa-star-o'></i>" .
+                    "<i class='fa fa-star-o'></i>";
+                break;
+            case 2:
+                $output =
+                    "<i class='fa fa-star'></i>" .
+                    "<i class='fa fa-star'></i>" .
+                    "<i class='fa fa-star-o'></i>" .
+                    "<i class='fa fa-star-o'></i>" .
+                    "<i class='fa fa-star-o'></i>";
+                break;
+            case 3:
+                $output =
+                    "<i class='fa fa-star'></i>" .
+                    "<i class='fa fa-star'></i>" .
+                    "<i class='fa fa-star'></i>" .
+                    "<i class='fa fa-star-o'></i>" .
+                    "<i class='fa fa-star-o'></i>";
+                break;
+            case 4:
+                $output =
+                    "<i class='fa fa-star'></i>" .
+                    "<i class='fa fa-star'></i>" .
+                    "<i class='fa fa-star'></i>" .
+                    "<i class='fa fa-star'></i>" .
+                    "<i class='fa fa-star-o'></i>";
+                break;
+            case 5:
+                $output =
+                    "<i class='fa fa-star'></i>" .
+                    "<i class='fa fa-star'></i>" .
+                    "<i class='fa fa-star'></i>" .
+                    "<i class='fa fa-star'></i>" .
+                    "<i class='fa fa-star'></i>";
+                break;
+        }
+
+        return $output;
     }
 
 }

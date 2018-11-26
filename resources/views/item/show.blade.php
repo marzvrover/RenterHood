@@ -1,12 +1,12 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-md-10 offset-1">
-                <div class="card border-primary mb-3 mx-auto">
+            <div class="col-lg-8 offset-0">
+                <div class="card border-secondary mb-3 mx-auto">
                     <div class="card-header bg-secondary text-white h4">
                         <span class="float-left">{{ $item->name }}</span>
-                        <span class="float-right">${{ $item->price }}</span>
+                        <span class="float-right">{{ $item->price }}</span>
                     </div>
                     <div class="card-body">
                         <div>
@@ -14,42 +14,29 @@
                             <div class="text-center d-lg-none">
                                 <img class="inventory-image" style="height: 200px; width: 300px;" src="{{ asset($item->picture) }}" data-src="" alt="Image of {{ $item->name }}">
                             </div>
-                            <div class="float-left mt-2" style="padding-left: 40px; width: 400px;">
-                                <div class="h5">Price</div>
-                                <p>${{ $item->price }}<p>
-                                <div class="h5">Postal Code</div>
+                            <div class="float-left mt-4 mt-lg-2 ml-4 d-inline">
+                                <span class="h5">Price</span>
+                                <p>{{ $item->price }}<p>
+                                <span class="h5">Postal Code</span>
                                 <p>{{ $item->postal_code }}<p>
-                                <div class="h5">Description</div>
-                                <p class="card-text">{{ $item->description }}</p>
-                                <div class="h5">{{ $item->user->name}}'s Details:</div>
-                                <p>Phone: {{ $item->user->phone_number}}</p>
-                                <p>Email: {{ $item->user->email}}</p>
-                                <button class="btn btn-primary float-right" id="rentButton">Rent</button>
+                                <span class="h5">Description</span>
+                                <p>{{ $item->description }}</p>
+                                @include('partials.rent-request.rent-btn')
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="col-lg-4">
+                @include('partials.user.card')
+            </div>
         </div>
-    </div>
-    <div class="container">
         <div class="row">
-            <div class="col-md-10 offset-1">
-                <div class="card border-primary mb-3 mx-auto">
-                    <div class="card-header bg-secondary text-white h4">Item Review</div>
-                    <div class="card-body">
-                        <div>
-                            <div class="reviewHeader">
-                                <span class="h5">User's Name</span>
-                                <span>Rating</span>
-                            </div>
-                            <div class ="reviewBody">
-                                <p>This carpet cleaner rocked my world!</p>
-                            </div>
-                        </div>
-                        <hr class="border-primary"/>
-                    </div>
-                </div>
+            <div class="col-lg-8 mt-4">
+                @include('partials.item.reviews-card')
+            </div>
+            <div class="col-lg-4 mt-4">
+                @include('partials.user.reviews-card')
             </div>
         </div>
     </div>

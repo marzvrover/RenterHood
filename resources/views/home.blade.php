@@ -32,33 +32,38 @@
                 <div class="card-header bg-secondary text-white" style="font-size: large">Items for Approval</div>
                 <div class="card-body">
                     <div style="margin-top: 10px">
-                        <table id="ApprovalItems">
-                            <tr>
-                                <th>Item Name</th>
-                                <th>Price</th>
-                                <th>Description</th>
-                                <th>User Requesting</th>
-                                <th>Accept/Deny</th>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Carpet Steamer
-                                </td>
-                                <td>
-                                    $20.00
-                                </td>
-                                <td>
-                                    Lovely carpet steamer.
-                                </td>
-                                <td>
-                                    Whitney Carrier
-                                </td>
-                                <td class="text-center">
-                                    <a role="button" class="btn btn-sm btn-primary" href="#">Accept</a>
-                                    <a role="button" class="btn btn-sm btn-primary" href="#">Deny</a>
-                                </td>
-                            </tr>
-                        </table>
+                        @if(Auth::user()->requests->isEmpty())
+                            You have no requests to rent your items.
+                        @else
+                            <table id="ApprovalItems">
+                                <tr>
+                                    <th>Item Name</th>
+                                    <th>Price</th>
+                                    <th>Description</th>
+                                    <th>User Requesting</th>
+                                    <th>Accept/Deny</th>
+                                </tr>
+                                @foreach(Auth::user()->requests as $request)
+                                <tr>
+                                    <td>
+                                        {{ $request->item->name }}
+                                    </td>
+                                    <td>
+                                        {{ $request->item->price }}
+                                    </td>
+                                    <td>
+                                        {{ $request->item->short_description }}
+                                    </td>
+                                    <td>
+                                        {{ $request->requester->name }}
+                                    </td>
+                                    <td class="text-center">
+                                        @include('partials.rent-request.status-btns')
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </table>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -67,34 +72,50 @@
     <div style="margin-top: 20px" class="row justify-content-center">
         <div class="col-md-8">
             <div class="card border-secondary">
-                <div class="card-header bg-secondary text-white" style="font-size: large">Pending Requested Items</div>
+                <div class="card-header bg-secondary text-white" style="font-size: large">Requested Items</div>
                 <div class="card-body">
                     <div style="margin-top: 10px">
-                        <table id="ApprovalItems">
-                            <tr>
-                                <th>Item Name</th>
-                                <th>Price</th>
-                                <th>Description</th>
-                                <th>Item Owner</th>
-                                <th>Status</th>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Golf Cart
-                                </td>
-                                <td>
-                                    $100.00
-                                </td>
-                                <td>
-                                    Get a birdie and I will take $5 off!
-                                </td>
-                                <td>
-                                    Matt Dooley
-                                </td>
-                                <td>
-                                    Waiting for Approval
-                                </td>
-                            </tr>
+                        @if(Auth::user()->requestings->isEmpty())
+                            You are not requesting to rent any items.
+                        @else
+                            <table id="ApprovalItems">
+                                <tr>
+                                    <th>Item Name</th>
+                                    <th>Price</th>
+                                    <th>Description</th>
+                                    <th>Item Owner</th>
+                                    <th>Status</th>
+                                </tr>
+                                @foreach(Auth::user()->requestings as $request)
+                                    <tr>
+                                        <td>
+                                            {{ $request->item->name }}
+                                        </td>
+                                        <td>
+                                            {{ $request->item->price }}
+                                        </td>
+                                        <td>
+                                            {{ $request->item->short_description }}
+                                        </td>
+                                        <td>
+                                            {{ $request->requester->name }}
+                                        </td>
+                                        <td>
+                                            @if($request->accepted === null)
+                                                <span class="font-weight-bold text-warning">Waiting for Approval</span>
+                                            @elseif($request->accepted == true)
+                                                @if($request->resolved == true)
+                                                    <span class="font-weight-bold text-success">Returned</span>
+                                                @else
+                                                    <span class="font-weight-bold text-success">Approved</span>
+                                                @endif
+                                            @elseif($request->accepted == false)
+                                                <span class="font-weight-bold text-danger">Denied</span>
+                                            @endif
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            @endif
                         </table>
                     </div>
                 </div>

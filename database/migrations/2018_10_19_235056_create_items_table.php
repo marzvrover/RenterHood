@@ -21,8 +21,8 @@ class CreateItemsTable extends Migration
             $table->string('postal_code');
             $table->integer('price');
             $table->string('picture');
+            $table->tinyInteger('rented')->default(0);
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 

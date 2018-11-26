@@ -15,6 +15,7 @@
     </div>
 
 @endsection
+
 @section('footer')
     <img class="ml-2" src="/img/Algolia.svg" alt="Algolia Logo">
 @endsection

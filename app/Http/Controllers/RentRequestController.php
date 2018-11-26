@@ -2,78 +2,52 @@
 
 namespace App\Http\Controllers;
 
+use App\Item;
 use App\RentRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class RentRequestController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Item  $item
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Item $item)
     {
-        //
-    }
+        if (Auth::user() == $item->user) abort(403);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\RentRequest  $rentRequest
-     * @return \Illuminate\Http\Response
-     */
-    public function show(RentRequest $rentRequest)
-    {
-        dd($rentRequest);
-
-        return view('request.show', [
-            'request' => $rentRequest->load('item'),
+        RentRequest::create([
+            'requester_id' => Auth::user()->id,
+            'item_id' => $item->id,
         ]);
+
+        return Redirect::back();
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\RentRequest  $rentRequest
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(RentRequest $rentRequest)
+    public function update(Request $request, Item $item, RentRequest $rentRequest)
     {
-        //
-    }
+        if ($request->has('accept')) {
+            $rentRequest->accepted = true;
+            $rentRequest->save();
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\RentRequest  $rentRequest
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, RentRequest $rentRequest)
-    {
-        //
+            $item->rented = true;
+            $item->save();
+        } else if ($request->has('deny')) {
+            $rentRequest->accepted = false;
+            $rentRequest->resolved = true;
+            $rentRequest->save();
+        } else if ($request->has('return')) {
+            $rentRequest->resolved = true;
+            $rentRequest->save();
+            $item->rented = false;
+            $item->save();
+        }
+
+        return Redirect::back();
     }
 
     /**

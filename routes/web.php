@@ -26,6 +26,8 @@ Route::resource('users', 'UserController')->only(['show', 'edit', 'update', 'des
 
 Route::resource('items', 'ItemController');
 
-Route::name('requests.')->prefix('requests')->group(function() {
-    Route::get('/{rent_request}', 'RentRequestController@show')->name('show');
-});
+Route::post('items/{item}/rent', 'RentRequestController@store')->name('items.rent');
+Route::put('items/{item}/rent/{rent_request}', 'RentRequestController@update')->name('items.rent.update');
+
+Route::post('items/{item}/review', 'ReviewController@storeItem')->name('items.reviews.add');
+Route::post('users/{user}/review', 'ReviewController@storeItem')->name('users.reviews.add');

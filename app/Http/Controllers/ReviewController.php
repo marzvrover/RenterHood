@@ -6,6 +6,8 @@ use App\Review;
 use Illuminate\Http\Request;
 use App\Item;
 use App\User;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Auth;
 
 class ReviewController extends Controller
 {
@@ -32,37 +34,53 @@ class ReviewController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param Item $item
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function storeItem(Request $request, $item_id)
+    public function storeItem(Request $request, Item $item)
     {
+        if (Auth::user() == $item->user) abort(403);
+
         $validated = $request->validate([
             'value' => 'required',
             'comment' => '',
         ]);
 
         $validated['owner_id'] = Auth::user()->id;
-        $validated['reviewable_id'] = $item_id;
-        $validated['reviewable_type'] = 'App\Item';
-
-        $review = Review::create($validated);
-        //
-    }
-
-    public function storeUser(Request $request, $user_id)
-    {
-        $validated = $request->validate([
-            'value' => 'required',
-            'comment' => '',
-        ]);
-
-        $validated['owner_id'] = Auth::user()->id;
+        $validated['reviewable_id'] = $item->id;
 
         $review = Review::make($validated);
 
-        Auth::user()->user_reviews()->save($review);
-        //
+        $item->reviews()->save($review);
+
+        return Redirect::back();
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param Request $request
+     * @param User $user
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function storeUser(Request $request, User $user)
+    {
+        if (Auth::user() == $user) abort(403);
+
+        $validated = $request->validate([
+            'value' => 'required',
+            'comment' => '',
+        ]);
+
+        $validated['owner_id'] = Auth::user()->id;
+        $validated['reviewable_id'] = $user->id;
+
+        $review = Review::make($validated);
+
+        Auth::user()->reviews()->save($review);
+
+        return Redirect::back();
     }
 
     /**

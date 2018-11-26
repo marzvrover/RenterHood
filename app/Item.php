@@ -1,6 +1,7 @@
 <?php
 
 namespace App;
+
 use Illuminate\Support\Str;
 use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
@@ -66,7 +67,9 @@ class Item extends Model
      * @return String
      */
     public function getPriceAttribute() {
-        return number_format($this->attributes['price']/100, 2);
+        $price = number_format($this->attributes['price']/100, 2);
+
+        return ($price == 0) ? 'Free' : "\${$price}";
     }
 
     /**

@@ -19,8 +19,8 @@ class RentRequest extends Model
         return $this->belongsTo('App\User');
     }
 
-    public function requestee() {
-        return $this->belongsTo('App\User');
+    public function getRequesteeAttribute() {
+        return $this->item()->user;
     }
 
     public function item() {
