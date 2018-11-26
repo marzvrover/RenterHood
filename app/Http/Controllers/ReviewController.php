@@ -48,7 +48,6 @@ class ReviewController extends Controller
         ]);
 
         $validated['owner_id'] = Auth::user()->id;
-        $validated['reviewable_id'] = $item->id;
 
         $review = Review::make($validated);
 
@@ -74,11 +73,10 @@ class ReviewController extends Controller
         ]);
 
         $validated['owner_id'] = Auth::user()->id;
-        $validated['reviewable_id'] = $user->id;
 
         $review = Review::make($validated);
 
-        Auth::user()->reviews()->save($review);
+        $user->reviews()->save($review);
 
         return Redirect::back();
     }

@@ -30,4 +30,4 @@ Route::post('items/{item}/rent', 'RentRequestController@store')->name('items.ren
 Route::put('items/{item}/rent/{rent_request}', 'RentRequestController@update')->name('items.rent.update');
 
 Route::post('items/{item}/review', 'ReviewController@storeItem')->name('items.reviews.add');
-Route::post('users/{user}/review', 'ReviewController@storeItem')->name('users.reviews.add');
+Route::post('users/{user}/review', 'ReviewController@storeUser')->name('users.reviews.add');

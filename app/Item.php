@@ -79,8 +79,4 @@ class Item extends Model
     public function getRawPriceAttribute() {
         return $this->attributes['price'];
     }
-
-    public function getReviews() {
-        return $this->reviews();
-    }
 }
