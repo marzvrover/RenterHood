@@ -27,5 +27,5 @@ Route::resource('users', 'UserController')->only(['show', 'edit', 'update', 'des
 Route::resource('items', 'ItemController');
 
 Route::name('requests.')->prefix('requests')->group(function() {
-    Route::get('/{RentRequest}', 'RentRequestController@show')->name('show');
+    Route::get('/{rent_request}', 'RentRequestController@show')->name('show');
 });
