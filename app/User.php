@@ -53,7 +53,19 @@ class User extends Authenticatable
     }
 
     public function isRequesting($item) {
-        $request = $this->requestings->where('item_id', $item->id)->where('resolved', 0)->first();
+        $request = $this->requestings->where('item_id', $item->id)->where('resolved', 0)->where('accepted', null)->first();
+
+        return ($request !== null);
+    }
+
+    public function isRenting($item) {
+        $request = $this->requestings->where('item_id', $item->id)->where('resolved', 0)->where('accepted', true)->first();
+
+        return ($request !== null);
+    }
+
+    public function hasRented($item) {
+        $request = $this->requestings->where('item_id', $item->id)->where('resolved', true)->where('accepted', true)->first();
 
         return ($request !== null);
     }
