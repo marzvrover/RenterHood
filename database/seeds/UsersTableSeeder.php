@@ -23,7 +23,7 @@ class UsersTableSeeder extends Seeder
                 'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
                 'remember_token' => str_random(10),
                 'postal_code' => '68102',
-                'phone_number' => mt_rand(1000000000, 9999999999),
+                'phone_number' => mt_rand(1000000000, env('PHONE_NUMBER_MAX', 9999999999)),
             ]);
 
             DB::commit();

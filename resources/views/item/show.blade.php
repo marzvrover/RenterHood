@@ -15,6 +15,8 @@
                     <p>{{ $item->postal_code }}<p>
                     <h5>Description</h5>
                     <p class="card-text">{{ $item->description }}</p>
+                    <h5>{{ $item->user->name}}'s Details:</h5>
+                    <p>Phone: {{ $item->user->phone_number}}    Email: {{ $item->user->email}}<p>
                     <button class="btn btn-primary float-right" id="rentButton">Rent</button>
                 </div>
             </div>
