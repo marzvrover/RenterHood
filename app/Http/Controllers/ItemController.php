@@ -109,6 +109,9 @@ class ItemController extends Controller
             'picture' => 'image',
         ]);
 
+        // Converts price from dollars to cents
+        $validated['price'] *= 100;
+
         $item->update($validated);
 
         $item->save();

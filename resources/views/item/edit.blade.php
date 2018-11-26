@@ -21,7 +21,7 @@
                         </tr>
                         <tr>
                             <td><label for="price">Price:</label></td>
-                            <td><input type="number" name="price" id="price" placeholder="price&hellip;" value="{{ old('price') ?? $item->price }}" class="text-primary border-secondary p-1" required/></td>
+                            <td><input type="number" name="price" step="0.01" id="price" placeholder="price&hellip;" value="{{ old('price') ?? $item->price }}" class="text-primary border-secondary p-1" required/></td>
                         </tr>
                         <tr>
                             <td><label for="picture">Picture:</label></td>
