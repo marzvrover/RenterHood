@@ -9,6 +9,7 @@ class Review extends Model
 
     protected $fillable = [
         'owner_id',
+        'reviewable_id',
         'value',
         'comment'
     ];
