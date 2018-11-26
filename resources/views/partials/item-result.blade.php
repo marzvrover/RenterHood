@@ -12,7 +12,7 @@
             <div class="text-center">
                 <div class="btn-group">
                     <a role="button" class="btn btn-sm btn-outline-primary" href="{{ route('items.show', $item->id) }}">View</a>
-                    @if(Auth::user()->id == $item->user->id)
+                    @if(Auth::id() == $item->user->id)
                         <a role="button" class="btn btn-sm btn-outline-primary" href="{{ route('items.edit', $item->id) }}">Edit</a>
                     <form action="{{ route('items.destroy', $item->id) }}" method="POST">
                         @method('DELETE')
