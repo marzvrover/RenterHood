@@ -7,7 +7,7 @@
                 @method('PATCH')
                 <div class="card-header bg-secondary text-white">
                     <input type="text" name="name" aria-label="name" placeholder="Name&hellip;" value="{{ old('name') ?? $user->name }}" class="text-primary border-secondary p-1" required/>
-                    <button class="btn btn-link text-white float-right p-1" type="submit"><i class="far fa-check"></i></button>
+                    <button class="btn btn-link text-white float-right p-1" type="submit"><i class="fa fa-check"></i></button>
                 </div>
                 <div class="card-body">
                     <table>
@@ -38,6 +38,15 @@
                     </table>
                     <button class="btn btn-danger float-right" form="delete">Delete</button>
                 </div>
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
             </form>
             <form method="POST" action="{{ route('users.destroy', $user) }}" id="delete">
                 @csrf

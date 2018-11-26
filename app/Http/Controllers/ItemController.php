@@ -101,12 +101,11 @@ class ItemController extends Controller
         if (Auth::user() != $item->user) abort(403);
 
         $validated = $request->validate([
-            'user_id' => 'required',
             'name' => 'required',
             'description' => 'required',
             'postal_code' => 'required',
-            'price' => '',
-            'picture' => '',
+            'price' => 'required|numeric',
+            'picture' => 'image',
         ]);
 
         $item->update($validated);

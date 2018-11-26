@@ -13,7 +13,7 @@
                         <div class="text-center">
                             <div style="margin-top: 5px;" class="btn-group">
                                 <a role="button" class="btn btn-sm btn-outline-primary" href="#">View</a>
-                                <a role="button" class="btn btn-sm btn-outline-primary" href="#">Edit</a>
+                                <a role="button" class="btn btn-sm btn-outline-primary" href="{{ route('items.edit', 1) }}">Edit</a>
                                 <a role="button" class="btn btn-sm btn-outline-primary" href="#">Delete</a>
                             </div>
                         </div>
