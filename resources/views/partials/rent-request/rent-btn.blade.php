@@ -1,4 +1,4 @@
-@if(Auth::user()->isRequesting($item))
+@if(Auth::user() && Auth::user()->isRequesting($item))
     <button class="btn btn-outline-primary float-right disabled">Requested</button>
 @else
     <form action="{{ route('items.rent', $item->id) }}" method="POST">

@@ -13,7 +13,14 @@
                     <table>
                         <tr>
                             <td><label for="description">Description:</label></td>
-                            <td><textarea type="text" name="description" id="description" placeholder="Description&hellip;" class="text-primary border-secondary p-1" rows=10 required>{{ old('description') ?? $item->description }}"</textarea></td>
+                            <td>
+                                <textarea type="text" name="description" id="description"
+                                          placeholder="Description&hellip;"
+                                          class="text-primary border-secondary p-1"
+                                          rows=10 required>
+                                    {{ old('description') ?? $item->description }}
+                                </textarea>
+                            </td>
                         </tr>
                         <tr>
                             <td><label for="postal_code">Postal Code:</label></td>
