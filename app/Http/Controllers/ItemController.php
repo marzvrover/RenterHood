@@ -84,6 +84,8 @@ class ItemController extends Controller
      */
     public function edit(Item $item)
     {
+        if (Auth::user() != $item->user) abort(403);
+        return view('item.edit', ['item' => $item]);
         //
     }
 
@@ -96,6 +98,22 @@ class ItemController extends Controller
      */
     public function update(Request $request, Item $item)
     {
+        if (Auth::user() != $item->user) abort(403);
+
+        $validated = $request->validate([
+            'user_id' => 'required',
+            'name' => 'required',
+            'description' => 'required',
+            'postal_code' => 'required',
+            'price' => '',
+            'picture' => '',
+        ]);
+
+        $item->update($validated);
+
+        $item->save();
+
+        return redirect()->route('items.show', $item);
         //
     }
 
