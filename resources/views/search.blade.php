@@ -10,7 +10,12 @@
                     Sorry, but there is no items matching the search "{{ request('query') }}"
                 </div>
              @endforelse
+
          </div>
     </div>
 
 @endsection
+@section('footer')
+    <img class="ml-2" src="/img/Algolia.svg" alt="Algolia Logo">
+@endsection
+
