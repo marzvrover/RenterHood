@@ -1,6 +1,7 @@
 <?php
 
 namespace App;
+
 use Illuminate\Support\Str;
 use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
@@ -37,6 +38,18 @@ class Item extends Model
         return $this->belongsTo('App\User');
     }
 
+    public function reviews()
+    {
+        return $this->morphMany('App\Review', 'reviewable');
+    }
+
+    /**
+     * Defines request relationship
+     */
+    public function requests() {
+        return $this->hasMany('App\RentRequest', 'item_id');
+    }
+
     /**
      * Accessor for the short description.
      * The short description is the first 15 words of the description.
@@ -54,7 +67,9 @@ class Item extends Model
      * @return String
      */
     public function getPriceAttribute() {
-        return number_format($this->attributes['price']/100, 2);
+        $price = number_format($this->attributes['price']/100, 2);
+
+        return ($price == 0) ? 'Free' : "\${$price}";
     }
 
     /**
@@ -63,5 +78,9 @@ class Item extends Model
      */
     public function getRawPriceAttribute() {
         return $this->attributes['price'];
+    }
+
+    public function getReviews() {
+        return $this->reviews();
     }
 }

@@ -35,4 +35,40 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Item');
     }
+
+
+    /**
+     *
+     */
+    public function requests() {
+        return $this->hasManyThrough('App\RentRequest', 'App\Item', 'user_id');
+    }
+
+    /**
+     *
+     */
+    public function requestings()
+    {
+        return $this->hasMany('App\RentRequest', 'requester_id');
+    }
+
+    public function isRequesting($item) {
+        $request = $this->requestings->where('item_id', $item->id)->where('resolved', 0)->first();
+
+        return ($request !== null);
+    }
+
+    public function reviews()
+    {
+        return $this->morphMany('App\Review', 'reviewable');
+    }
+
+    public function reviewed_by()
+    {
+        return $this->hasMany(Review::Class);
+    }
+
+    public function getReviewsAttribute() {
+        return $this->reviews();
+    }
 }

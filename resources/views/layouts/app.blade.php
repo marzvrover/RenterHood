@@ -18,6 +18,7 @@
             </main>
             <footer class="footer">
                 <span>&copy; RenterHood 2018</span>
+                @yield('footer')
             </footer>
         </div>
         @push('scripts')

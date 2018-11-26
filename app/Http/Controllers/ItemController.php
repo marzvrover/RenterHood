@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Item;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class ItemController extends Controller
 {
@@ -73,7 +74,7 @@ class ItemController extends Controller
      */
     public function show(Item $item)
     {
-        return view('item.show', ['item' => $item->load('user')]);
+        return view('item.show', ['item' => $item->load('user'), 'user' => $item->user]);
     }
 
     /**
@@ -84,6 +85,8 @@ class ItemController extends Controller
      */
     public function edit(Item $item)
     {
+        if (Auth::user() != $item->user) abort(403);
+        return view('item.edit', ['item' => $item]);
         //
     }
 
@@ -96,6 +99,24 @@ class ItemController extends Controller
      */
     public function update(Request $request, Item $item)
     {
+        if (Auth::user() != $item->user) abort(403);
+
+        $validated = $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'postal_code' => 'required',
+            'price' => 'required|numeric',
+            'picture' => 'image',
+        ]);
+
+        // Converts price from dollars to cents
+        $validated['price'] *= 100;
+
+        $item->update($validated);
+
+        $item->save();
+
+        return redirect()->route('items.show', $item);
         //
     }
 
@@ -107,6 +128,10 @@ class ItemController extends Controller
      */
     public function destroy(Item $item)
     {
-        //
+        if (Auth::user() != $item->user) abort(403);
+
+        $item->forceDelete();
+
+        return Redirect::back();
     }
 }
