@@ -36,9 +36,7 @@ class User extends Authenticatable
         return $this->hasMany('App\Item');
     }
 
-    /**
-     *
-     */
+
     public function requests() {
         return $this->hasMany('App\RentRequest', 'requestee_id');
     }
@@ -46,7 +44,21 @@ class User extends Authenticatable
     /**
      *
      */
-    public function requestings() {
+    public function requestings()
+    {
         return $this->hasMany('App\RentRequest', 'requester_id');
+    }
+    public function user_reviews()
+    {
+        return $this->morphMany('App\Review', 'reviewable');
+    }
+
+    public function reviewed_by()
+    {
+        return $this->hasMany(Review::Class);
+    }
+
+    public function getReviewsAttribute() {
+        return $this->reviews();
     }
 }
