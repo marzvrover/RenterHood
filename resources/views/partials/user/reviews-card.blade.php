@@ -15,12 +15,16 @@
         @empty
             There are no reviews for this user.
         @endforelse
-        <form action=" {{ route('users.reviews.add', $user) }}" method="POST">
-            @csrf
-            <textarea style="width: 100%;" rows=5 min=1 max=5 placeholder="How did you like this user?" required name="comment"></textarea>
-            <label for="value">How many stars: </label>
-            <input name="value" type="number" value="{{ old('number') }}" placeholder="(1 - 5)" required/>
-            <button class="btn btn-primary">Review</button>
-        </form>
+        @if((Auth::user()) &&
+            (Auth::id() != $item->user->id) &&
+            (Auth::user()->hasRented($item)))
+            <form action=" {{ route('users.reviews.add', $user) }}" method="POST">
+                @csrf
+                <textarea style="width: 100%;" rows=5 min=1 max=5 placeholder="How did you like this user?" required name="comment"></textarea>
+                <label for="value">How many stars: </label>
+                <input name="value" type="number" value="{{ old('number') }}" placeholder="(1 - 5)" required/>
+                <button class="btn btn-primary">Review</button>
+            </form>
+        @endif
     </div>
 </div>
