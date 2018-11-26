@@ -2259,6 +2259,11 @@ pre code {
   opacity: 1;
 }
 
+.form-control:-ms-input-placeholder {
+  color: #868e96;
+  opacity: 1;
+}
+
 .form-control::-ms-input-placeholder {
   color: #868e96;
   opacity: 1;
@@ -10503,5 +10508,28 @@ header .dropdown-item.active:hover {
   width: 150px;
 }
 
+table#ApprovalItems
+{
+    border-collapse: collapse;
+    width: 100%;
+
+}
+
+table#ApprovalItems td
+{
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+table#ApprovalItems th
+{
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+
+}
+table#ApprovalItems tr:hover
+{
+    margin: 10px;
+    background-color:#f5f5f5;
+}
 
 /*# sourceMappingURL=app.css.map*/
